@@ -3,15 +3,19 @@ class ProfileController < ApplicationController
   end
 
   def create
-    user = User.create(
-      username: params[:username],
-      firstname: params[:firstname],
-      lastname: params[:lastname],
-      password: params[:password],
-      birthday: params[:birthday],
-      email: params[:email]
-  )
+      @student = Student.create(params[:student])
+  end
 
+  def teacher-create
+    @teacher = Teacher.create(params[:teacher])
+  end
+
+  def teacher-new
+    @teacher = Teacher.new
+  end
+
+  def new
+    @student = Student.new
   end
 
   def update
