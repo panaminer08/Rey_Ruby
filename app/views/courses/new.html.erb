@@ -1,0 +1,6 @@
+<%= form_with model: @course do |form| %>
+<%= form.text_field :name %><br>
+<%= form.number_field :in_class_hours %><br>
+<%# <%= form.select :cohorts_id, options_for_select(@cohort, @course.cohorts_id) %><br> %>
+<%= form.submit %>
+<% end %>

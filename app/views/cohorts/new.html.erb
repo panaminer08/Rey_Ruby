@@ -1,0 +1,8 @@
+<%= form_with model: @cohort do |form| %>
+ Name: <br> <%= form.text_field :name %><br>
+ Start Date: <br> <%= form.date_field :start_date %><br>
+ End Date: <br> <%= form.date_field :end_date %><br>
+ Course: <br> <%= form.select :course_id, options_for_select(@course, @cohort.course_id) %> <br>
+ Instructor: <br> <%= form.select :teachers_id, options_for_select(@teacher, @cohort.teachers_id)  %><br>
+  <%= form.submit %>
+<% end %>

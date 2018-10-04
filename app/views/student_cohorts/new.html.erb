@@ -1,0 +1,8 @@
+<h1>StudentCohorts#new</h1>
+
+
+<%= form_with(modal: @student_cohorts) do |form| %>
+  <%= form.select :cohort_id, options_for_select(@cohorts, @student_cohorts.cohort_id) %>
+  <%= form.select :student_id, options_for_select(@students, @student_cohorts.student_id) %>
+  <%= form.submit %>
+<% end %>

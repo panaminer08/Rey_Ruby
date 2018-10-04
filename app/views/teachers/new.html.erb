@@ -1,0 +1,12 @@
+<%= form_with model: @teacher,url:"/teachers" do |form| %>
+ Username: <%= form.text_field :username %><br>
+ Firstname: <%= form.text_field :first_name %><br>
+ Lastname: <%= form.text_field :last_name %><br>
+ Password: <%= form.password_field :password %><br>
+ Birthdate: <%= form.date_field :birth_date %><br>
+ Salary:   $ <%= form.number_field :salary %><br>
+ Highest completed<br>
+ Education level: <%= form.text_field :highest_completed_education %><br>
+  <%= form.hidden_field :cohort_id, value: @cohort_id %>
+  <%= form.submit %>
+<% end %>
