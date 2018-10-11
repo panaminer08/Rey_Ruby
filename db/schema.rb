@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_192522) do
+ActiveRecord::Schema.define(version: 2018_10_10_210322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
@@ -35,15 +44,34 @@ ActiveRecord::Schema.define(version: 2018_10_03_192522) do
     t.index ["cohorts_id"], name: "index_courses_on_cohorts_id"
   end
 
+  create_table "dashboards", force: :cascade do |t|
+    t.string "bio"
+    t.bigint "teacher_id"
+    t.string "hobbys"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_dashboards_on_teacher_id"
+  end
+
+  create_table "flashes", force: :cascade do |t|
+    t.bigint "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_flashes_on_admin_id"
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "bio"
     t.string "hobbys"
-    t.bigint "teachers_id"
-    t.bigint "students_id"
+    t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["students_id"], name: "index_profiles_on_students_id"
-    t.index ["teachers_id"], name: "index_profiles_on_teachers_id"
+    t.index ["student_id"], name: "index_profiles_on_student_id"
   end
 
   create_table "student_cohorts", force: :cascade do |t|
@@ -59,7 +87,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_192522) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.string "password"
+    t.string "encrypted_password", default: "", null: false
     t.date "birth_date"
     t.string "highest_completed_education"
     t.datetime "created_at", null: false
@@ -70,7 +98,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_192522) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.string "password"
+    t.string "encrypted_password", default: "", null: false
     t.date "birth_date"
     t.integer "salary"
     t.string "highest_completed_education"

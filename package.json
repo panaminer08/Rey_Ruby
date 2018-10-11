@@ -1,5 +1,7 @@
 {
   "name": "Admin_Panel",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
 }

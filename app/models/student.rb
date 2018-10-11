@@ -6,8 +6,9 @@ class Student < ApplicationRecord
 
 
     after_create :create_profile
+    after_destroy :destroy_profile
 
-    def create_profile
-        Profile.create(students_id: self.id)
-    end
+     def create_profile
+     Profile.create(student_id: self.id)
+     end
 end

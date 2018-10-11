@@ -1,0 +1,14 @@
+<h1>Admins#index</h1>
+<p>Find me in app/views/admins/index.html.erb</p>
+<div class="photos">
+  <img src="tech">
+</div>
+
+  <%= form_for :session do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.submit "Log In" %>
+<% end %>
+

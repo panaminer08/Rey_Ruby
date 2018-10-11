@@ -1,13 +1,14 @@
 class Teacher < ApplicationRecord
     has_many :students
-    has_one :profile
+    has_one :dashboard
     has_one :cohort
 
-    after_create :create_profile
+    after_create :create_dashboard
+    after_destroy :destroy_dashboard
 
-    def create_profile
-        Profile.create(
-            teachers_id: self.id,
+    def create_dashboard
+        Dashboard.create(
+            teacher_id: self.id,
             )
     end
 end

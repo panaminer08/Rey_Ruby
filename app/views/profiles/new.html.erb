@@ -1,0 +1,12 @@
+<h1>Profiles#new</h1>
+<p>Find me in app/views/profiles/new.html.erb</p>
+
+<%= form_with(modal: @profile) do |form| %>
+  <%= form.text_field :bio %>
+  <%= form.text_field :hobbys %>
+  <%= form.select :teacher_id, options_for_select(@teachers, @teachers.teacher_id) %>
+  <%= form.select :student_id, options_for_select(@students, @students.student_id) %>
+  <%= form.hidden_field :created_at %>
+  <%= form.hidden_field :updated_at %>
+  <%= form.submit %>
+<% end %>

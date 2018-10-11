@@ -3,8 +3,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
     create_table :profiles do |t|
       t.string :bio
       t.string :hobbys
-      t.references :teachers
-      t.references :students
+      t.references :student
       t.datetime :created_at, null: false
       t.datetime :updated_at, null: false
 

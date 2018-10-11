@@ -1,12 +1,12 @@
-<%= form_with model: @teacher,url:"/teachers" do |form| %>
+<%= form_with model: @teacher do |form| %>
  Username: <%= form.text_field :username %><br>
  Firstname: <%= form.text_field :first_name %><br>
  Lastname: <%= form.text_field :last_name %><br>
  Password: <%= form.password_field :password %><br>
  Birthdate: <%= form.date_field :birth_date %><br>
  Salary:   $ <%= form.number_field :salary %><br>
+    <%# <%= form.hidden_field :teacher_id, value: @teacher_id %>  %>
  Highest completed<br>
- Education level: <%= form.text_field :highest_completed_education %><br>
-  <%= form.hidden_field :cohort_id, value: @cohort_id %>
+ Education level: <%= form.select :highest_completed_education, options_for_select([['High School'], ['Bachelors'], ['MBA'], ['PHD']]) %><br>
   <%= form.submit %>
 <% end %>

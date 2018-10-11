@@ -1,0 +1,11 @@
+<h1>Admins#new</h1>
+<p>Find me in app/views/admins/new.html.erb</p>
+
+<%= form_with model: @admin do |form| %>
+  Firstname: <br> <%= form.text_field :first_name %><br>
+  Lastname: <br> <%= form.text_field :last_name %><br>
+  Username: <br> <%= form.text_field :username %><br>
+  Password: <br> <%= form.password_field :encrypted_password %><br>
+  <%= form.submit %>
+<% end %>
+

@@ -1,2 +1,8 @@
 <h1>Students#edit</h1>
 <p>Find me in app/views/students/edit.html.erb</p>
+
+<%= form_with model: @student do |form| %>
+  Username: <br> <%= form.text_field :username %><br>
+  Password: <br> <%= form.password_field :password %><br>
+  <%= form.submit %>
+  <% end %>
