@@ -1,23 +1,24 @@
 class TeachersController < ApplicationController
   def index
 
-      if sessions[:teacher_id] 
+      if session[:teacher_id] 
+        
         flash[:notice] = "Welcome, let's get ready for the day!!"
 
         render "dashboard/teacher_profile"
       else
         flash.now.alert = "Let's get it correct, you're being watched"
-        redirect "teacher_path"
+        render "/teachers/index"
       end
   end
 
   def sign_in
-    @teacher  = Teacher.find_by(username: params[:session][:username])
+    @teacher = Teacher.find_by(username: params[:session][:username])
 
-      if session[:teacher_id]
+      if session[:teacher_id] = @teacher.id
         flash[:notice]= "Successfully Signed In"
 
-        redirect_to "teacher_path"
+        redirect_to "/dashboard/teacher_profile"
 
       else
 
@@ -28,8 +29,8 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.create(teacher_params) 
-    sessions[:teacher_id]
-    redirect_to instructor_path  
+    session[:teacher_id] = @teacher.id
+    redirect_to "/dashboard/teacher_profile"  
   end
 
   def new

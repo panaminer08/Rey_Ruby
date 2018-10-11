@@ -1,10 +1,13 @@
 class CohortsController < ApplicationController
   
   def index
+    @teacher = Teacher.all
+    @course
   end
 
  def create
     @cohort = Cohort.create(params[:cohort][:teachers_id][:course_id])
+    redirect_to "/dashboard/admin_panel"
   end
 
   def new

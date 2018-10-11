@@ -3,3 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // <body class="<%= controller_name %> <%= action_name %>">
 
+.body-image {
+    background-repeat: no-repeat;;
+    background-position: center;
+    background-size: cover;
+}

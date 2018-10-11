@@ -1,18 +1,20 @@
-this will be my home page where each student and teacher will be routed to.
-i will have it nice hahahha
+
 <nav>
     <a href="/admins/index">Admin Login</a>
 </nav>
 
 <div class="row">
-    <div class="col s6">
-        <a href="/admins/index">
-            <%= image_tag("cheerful")   %>
+    <div class="col s5">
+        <h1>Teacher Path</h1>
+        <a href="/teachers/index">
+            <%= image_tag 'cheerful', style: "height: 300px; width: 500px;"  %>
         </a>
     </div>
-    <div class="col s6">
+    <div class="col s5">
+        <h1>Student Path</h1>
         <a href="/students/index">
-            <%= image_tag("smiles") %>
+            <%= image_tag 'smiles', style: "height: 300px; width: 500px;" %>
         </a>
     </div>
 </div>
+

@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
     if session[:admin_id]
       flash[:notice]= "Success in logging in"
 
-    redirect_to "edit"
+    redirect_to "/flashes/admin_panel"
     else 
       flash.now.alert = "Wrong Username and or Password"
       render :index
@@ -16,10 +16,10 @@ class AdminsController < ApplicationController
   @admin = Admin.find_by(username: params[:session][:username])
     
     if
-      session[:admin_id]
+      session[:admin_id] = @admin.id
       flash[:notice] = 'Successfully logged in!'
 
-      redirect_to "admin_profile"
+      redirect_to "index"
     
     else
       flash.now.alert = "Incorrect password, try again."
@@ -34,8 +34,8 @@ class AdminsController < ApplicationController
 
   def create
     @admin = Admin.create(admin_params)
-    session[:admin_id]
-    redirect_to "admin_profile"
+    session[:admin_id] = @admin.id
+    redirect_to "/flashes/admin_panel"
   end
 
   def edit
